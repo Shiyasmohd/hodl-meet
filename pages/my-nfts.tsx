@@ -1,8 +1,8 @@
+import MyNftsPage from "../components/My Nfts /MyNftsPage"
+
 const MyNfts = () =>{
     return(
-        <div className="w-full">
-            My Nfts
-        </div>
+        <MyNftsPage/>
     )
 }
 
