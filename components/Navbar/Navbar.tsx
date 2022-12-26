@@ -3,12 +3,14 @@ import { Layout } from "./Layout";
 import { AcmeLogo } from "./AcmeLogo";
 import { useRouter } from "next/router";
 import { useAccount } from "wagmi";
+import { useAccountModal } from "@rainbow-me/rainbowkit";
 
 export default function MainNavbar() {
 
   const router = useRouter()
   const {address} = useAccount()
 
+  const { openAccountModal } = useAccountModal();
 
   const collapseItems = [
     "Home",
@@ -60,7 +62,6 @@ export default function MainNavbar() {
             <Navbar.Item>
               <Dropdown.Trigger>
                 <Avatar
-                  bordered
                   as="button"
                   color="secondary"
                   size="md"
@@ -81,8 +82,10 @@ export default function MainNavbar() {
                   {address?.slice(0,8)}...{address?.slice(-8,)}
                 </Text>
               </Dropdown.Item>
-              <Dropdown.Item key="logout" withDivider color="error">
-                Log Out
+              <Dropdown.Item key="logout" withDivider  color="error">
+                <div onClick={openAccountModal}>
+                    Log Out
+                </div>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
