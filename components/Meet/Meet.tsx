@@ -48,16 +48,8 @@ import {
                 Click on <b>Enable Stream</b>
               </li>
               <li>
-                Then Click on <b>Join room</b>, <i>"Room Joined"</i> should be
+                Then Click on <b>Join room</b> <i>Room Joined</i> should be
                 changed to true
-              </li>
-              <li>
-                Open the app in a <b>new tab</b> and repeat <b>steps 1 & 2</b>
-              </li>
-              <li>Return to 1st tab, now you'll see peers in the peer list,</li>
-              <li>
-                Click on <b>allowAllLobbyPeersToJoinRoom</b> to accept peers into
-                the room.
               </li>
             </ol>
           </div>
@@ -94,7 +86,7 @@ import {
             {lobbyPeers[0] && <h2>Lobby Peers</h2>}
             <div>
               {lobbyPeers.map((peer) => (
-                <div>{peer.peerId}</div>
+                <div key={peer.peerId}>{peer.peerId}</div>
               ))}
             </div>
   
