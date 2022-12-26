@@ -24,3 +24,4 @@ export default function Main() {
     <Home/>
   )
 }
+Home
