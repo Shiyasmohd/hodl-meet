@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@huddle01/huddle01-client": "^0.0.10",
+    "@huddle01/huddle01-iframe": "^0.0.8",
     "@next/font": "13.1.1",
     "@nextui-org/react": "^1.0.0-beta.11",
     "@rainbow-me/rainbowkit": "^0.8.1",
