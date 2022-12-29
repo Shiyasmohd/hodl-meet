@@ -30,7 +30,7 @@ export default function MainNavbar() {
         >
           <AcmeLogo />
           <Text b color="inherit" hideIn="xs">
-            ACME
+            HODL MEET
           </Text>
         </Navbar.Brand>
         <Navbar.Content

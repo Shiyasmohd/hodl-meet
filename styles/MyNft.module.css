@@ -1,0 +1,11 @@
+.nftCard{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-bottom: 12px;
+    overflow: hidden;
+}
+.nftCard img{
+    overflow: hidden;
+}
