@@ -7,14 +7,14 @@ const NftCard = (props: NftDetails) =>{
 
 
     const getLink = async() =>{
-        console.log(props.image.split('.').pop())
-        fetch(props.image)
-            .then(response => {
-                console.log(response.headers.get("content-type")); // Output: "image/jpeg"
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        console.log(props.image)
+        // fetch(props.image)
+        //     .then(response => {
+        //         console.log(response.headers.get("content-type")); // Output: "image/jpeg"
+        //     })
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
 
     }
     
