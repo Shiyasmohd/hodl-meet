@@ -62,7 +62,7 @@ import { Button, CSS } from "@nextui-org/react";
                       onClick={() => {
                         huddleIframeApp.methods[key as HuddleClientMethodName]();
                       }}
-                      className=" rounded-2xl cursor-pointer py-2 px-4 m-2 text-white bg-[#0072F5] "
+                      className=" rounded-2xl cursor-pointer py-2 px-4 m-2 text-white bg-[#0072F5] shadow-2xl "
                     >
                       {key}
                     </button>
@@ -77,7 +77,7 @@ import { Button, CSS } from "@nextui-org/react";
               <button
               key={reaction}
               onClick={() => huddleIframeApp.methods.sendReaction(reaction)}
-              className="rounded-2xl cursor-pointer py-2 px-4 m-2 text-white bg-[#0072F5]"
+              className="rounded-2xl cursor-pointer py-2 px-4 m-2 text-white bg-[#0072F5] shadow-2xl"
               >
                 {reaction}
               </button>
@@ -91,13 +91,14 @@ import { Button, CSS } from "@nextui-org/react";
                 value={walletAddress}
                 onChange={(e) => setWalletAddress(e.target.value)}
                 placeholder="Wallet Address"
-                className="border rounded-md px-3"
+                className="border rounded-md px-3 py-1 border-[#000]"
               />
       
               <Button
                 color="gradient"
                 css={ConnectButtonStyles}
                 onClick={() => huddleIframeApp.methods.connectWallet(walletAddress)}
+                className="shadow-md"
               >
                 Connect Wallet
               </Button>
