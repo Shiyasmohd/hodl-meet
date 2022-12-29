@@ -4,7 +4,7 @@ import styles from '../../styles/MyNft.module.css'
 
 const NftCard = (props: NftDetails) =>{
     return(
-        <div className={` ${styles.nftCard} w-full rounded-2xl shadow-md border`} onClick={()=>console.log(props.format)}>
+        <div className={` ${styles.nftCard} w-full rounded-2xl shadow-md border`} onClick={()=>console.log(props.image.slice(0,7))}>
             <div className="w-full h-[150px] rounded-2xl flex justify-center items-center overflow-hidden
                             md:h-[225px]">
                 {

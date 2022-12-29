@@ -2,6 +2,7 @@ import { Card, Row, Text } from "@nextui-org/react";
 import { Alchemy,Network } from "alchemy-sdk";
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi"
+import { IPFS_BASE_URL } from "../../const/const";
 import NftCard from "./NftCard";
 
 export type NftDetails = {
@@ -31,11 +32,21 @@ const MyNftsPage = () =>{
 
           nftsForOwner.ownedNfts.map((data: any,index: number)=>{
             if(data.title){
-                tempArr.push({
-                    name: data.title,
-                    image: data.rawMetadata.image,
-                    format: data.media[0].format
-                })
+                if(data.rawMetadata.image.slice(0,7) == "ipfs://"){
+                    let tempImgUrl = data.rawMetadata.image.slice(7,);
+
+                    tempArr.push({
+                        name: data.title,
+                        image: IPFS_BASE_URL+tempImgUrl,
+                        format: data.media[0].format
+                    })
+                }else{
+                    tempArr.push({
+                        name: data.title,
+                        image: data.rawMetadata.image,
+                        format: data.media[0].format
+                    })
+                }
             }
             setNftsArr(tempArr)
           })
