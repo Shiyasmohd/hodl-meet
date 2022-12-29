@@ -1,5 +1,6 @@
 import { Card, Row, Text } from "@nextui-org/react";
 import { Alchemy,Network } from "alchemy-sdk";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi"
 import { IPFS_BASE_URL } from "../../const/const";
@@ -25,31 +26,24 @@ const MyNftsPage = () =>{
       
       const fetchNfts = async() =>{
           let tempArr: NftDetails[] = []
-          const nftsForOwner = await alchemy.nft.getNftsForOwner(`0x${address?.slice(2,)}`);
+        //   const nftsForOwner = await alchemy.nft.getNftsForOwner(`0x${address?.slice(2,)}`);
           
-            console.log({nftsForOwner});
-            
+        //     console.log({nftsForOwner});
+        const fetchedData = await axios.get(`https://api.rarible.org/v0.1/items/byOwner?owner=ETHEREUM%3A${address}`)
+        console.log(fetchedData.data.items[16]);
+        
 
-          nftsForOwner.ownedNfts.map((data: any,index: number)=>{
-            if(data.title){
-                if(data.rawMetadata.image.slice(0,7) == "ipfs://"){
-                    let tempImgUrl = data.rawMetadata.image.slice(7,);
-
-                    tempArr.push({
-                        name: data.title,
-                        image: IPFS_BASE_URL+tempImgUrl,
-                        format: data.media[0].format
-                    })
-                }else{
-                    tempArr.push({
-                        name: data.title,
-                        image: data.rawMetadata.image,
-                        format: data.media[0].format
-                    })
-                }
+        fetchedData.data.items.map((data: any,index: number)=>{
+            if(data.meta && data.meta.content[0] && data.meta.content[0]['@type']){
+                tempArr.push({
+                    name: data.meta.name,
+                    image: data.meta.content[0].url,
+                    format: data.meta.content[0]['@type']
+                })
             }
-            setNftsArr(tempArr)
-          })
+        })
+
+        setNftsArr(tempArr)
       }
 
     useEffect(()=>{
