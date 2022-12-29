@@ -6,6 +6,6 @@
     padding-bottom: 12px;
     overflow: hidden;
 }
-.nftCard img{
+.nftCard img, .nftCard video{
     overflow: hidden;
 }

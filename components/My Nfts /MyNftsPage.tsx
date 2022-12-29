@@ -6,7 +6,8 @@ import NftCard from "./NftCard";
 
 export type NftDetails = {
     name: string,
-    image: string
+    image: string,
+    format: string
 }
 
 const MyNftsPage = () =>{
@@ -32,7 +33,8 @@ const MyNftsPage = () =>{
             if(data.title){
                 tempArr.push({
                     name: data.title,
-                    image: data.rawMetadata.image
+                    image: data.rawMetadata.image,
+                    format: data.media[0].format
                 })
             }
             setNftsArr(tempArr)
@@ -56,6 +58,7 @@ const MyNftsPage = () =>{
                         <NftCard
                             name={item.name}
                             image={item.image}
+                            format={item.format}
                             key={index}
                             />
                     ))
