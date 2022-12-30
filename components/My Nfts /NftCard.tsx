@@ -3,11 +3,12 @@ import { NftDetails } from "./MyNftsPage"
 import styles from '../../styles/MyNft.module.css'
 import { useAccount } from "wagmi";
 
+import { useRouter } from "next/router";
 
 const NftCard = (props: NftDetails) =>{
 
     const { address } = useAccount()
-
+    const router = useRouter()
     var config = {
         method: 'get',
         url: `https://api.rarible.org/v0.1/items/byOwner?owner=ETHEREUM%3A${address}`,
@@ -17,7 +18,10 @@ const NftCard = (props: NftDetails) =>{
     
     
     return(
-        <div className={` ${styles.nftCard} w-full rounded-2xl shadow-md border`} onClick={()=>console.log(props.format,props.image)} >
+        <div className={` ${styles.nftCard} w-full rounded-2xl shadow-md border`} onClick={()=>router.push({
+            pathname: '/meet',
+           query: { contract: props.contract },
+        }) } >
             <div className="w-full h-[150px] rounded-2xl flex justify-center items-center overflow-hidden
                             md:h-[225px]">
                 {
