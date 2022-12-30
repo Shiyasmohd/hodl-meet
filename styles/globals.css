@@ -11,7 +11,9 @@
     background: #2f80ed;
 }
 
-iframe{
+#huddle01-iframe{
     width: 100%;
     height: 85vh;
+    border: 0 !important;
+    border-radius: 12px;
 }
