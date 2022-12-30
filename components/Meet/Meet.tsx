@@ -57,7 +57,7 @@ const MeetPage = () =>  {
     );
    
 
-  }, []);
+  }, [address]);
   // const participants = huddleIframeApp.infoMethods.getParticipants();
   return (
     <div className="App max-w-[1200px] mx-auto my-0 p-6">
