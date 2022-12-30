@@ -16,7 +16,7 @@ const MeetPage = () =>  {
   const router = useRouter();
   const contract = router.query.contract;
   console.log(contract)
- // const [walletAddress, setWalletAddress] = useState("");
+ const [walletAddress, setWalletAddress] = useState("");
   const { address } = useAccount()
   const iframeConfig: IframeConfig = {
     roomUrl: "https://iframe.huddle01.com/"+{contract},
@@ -62,7 +62,7 @@ const MeetPage = () =>  {
   return (
     <div className="App max-w-[1200px] mx-auto my-0 p-6">
       <div className="container flex flex-col items-center gap-2">
-        <div className="">
+        {/* <div className="">
       
           <div className="w-full flex justify-center flex-wrap">
             {Object.keys(huddleIframeApp.methods)
@@ -79,11 +79,11 @@ const MeetPage = () =>  {
                 </button>
               ))}
           </div>
-        </div>
+        </div> */}
 
         <HuddleIframe config={iframeConfig} />
 
-        <div className="flex justify-center flex-wrap">
+        {/* <div className="flex justify-center flex-wrap">
           {reactions.map((reaction) => (
             <button
               key={reaction}
@@ -93,7 +93,7 @@ const MeetPage = () =>  {
               {reaction}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* <div className=" flex flex-col gap-4 my-8
                           md:flex-row">
