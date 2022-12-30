@@ -18,7 +18,7 @@ const NftCard = (props: NftDetails) =>{
     
     
     return(
-        <div className={` ${styles.nftCard} w-full rounded-2xl shadow-md border`} onClick={()=>router.push({
+        <div className={` ${styles.nftCard} w-full rounded-2xl shadow-md border cursor-pointer`} onClick={()=>router.push({
             pathname: '/meet',
            query: { contract: props.contract },
         }) } >
