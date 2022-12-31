@@ -15,7 +15,6 @@ export default function MainNavbar() {
 
   const collapseItems = [
     "Home",
-    "My NFTs"
   ];
 
   return (
@@ -45,11 +44,6 @@ export default function MainNavbar() {
             href="/">
               Home
             </Navbar.Link>
-          <Navbar.Link 
-            isActive={router.asPath=='/my-nfts'} 
-            href="/my-nfts">
-              My NFTs
-          </Navbar.Link>
         </Navbar.Content>
         <Navbar.Content
           css={{
@@ -98,13 +92,6 @@ export default function MainNavbar() {
               onClick={()=>router.push('/')}
             >
                 Home
-            </Navbar.CollapseItem>
-            <Navbar.CollapseItem
-              activeColor="primary"
-              isActive={router.asPath=='/my-nfts'} 
-              onClick={()=>router.push('/my-nfts')}
-            >
-                My NFTs
             </Navbar.CollapseItem>
         </Navbar.Collapse>
       </Navbar>

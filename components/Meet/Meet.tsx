@@ -9,14 +9,14 @@ import {
   IframeConfig,
   HuddleClientMethodName,
 } from "@huddle01/huddle01-iframe";
-import { Button, CSS } from "@nextui-org/react";
+import { Button, CSS, Modal, Text } from "@nextui-org/react";
 import { useAccount } from "wagmi";
 
 const MeetPage = () =>  {
   const router = useRouter();
   const contract = router.query.contract;
   console.log(contract)
- const [walletAddress, setWalletAddress] = useState("");
+
   const { address } = useAccount()
   const iframeConfig: IframeConfig = {
     roomUrl: "https://iframe.huddle01.com/"+{contract},
@@ -45,19 +45,21 @@ const MeetPage = () =>  {
     "❤️",
     "💯",
   ];
+  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
+  const closeHandler = () => {
+    setVisible(false);
+  };
+
+  const connectHuddleWallet = () =>{
     huddleIframeApp.methods.connectWallet(address)
+    setVisible(false)
+  }
 
-    huddleIframeApp.on(HuddleAppEvent.PEER_JOIN, (data) =>
-      console.log({ iframeData: data })
-    );
-    huddleIframeApp.on(HuddleAppEvent.PEER_LEFT, (data) =>
-      console.log({ iframeData: data })
-    );
-   
+  useEffect(()=>{
+    setVisible(true)
+  },[])
 
-  }, [address]);
   // const participants = huddleIframeApp.infoMethods.getParticipants();
   return (
     <div className="App max-w-[1400px] mx-auto my-0 p-6">
@@ -82,6 +84,33 @@ const MeetPage = () =>  {
         </div> */}
 
         <HuddleIframe config={iframeConfig} />
+
+        {/* Modal */}
+        <Modal
+          closeButton
+          aria-labelledby="modal-title"
+          open={visible}
+          onClose={closeHandler}
+        >
+          <Modal.Header>
+              <Text b size={18}>
+              HODL MEET
+              </Text>
+          </Modal.Header>
+          <Modal.Body>
+            <Text>
+              Are you sure that you wanna join this room ? 
+            </Text>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button auto flat color="error" css={{background: "#FDD8E5 !important"}} onClick={closeHandler}>
+              Go Back
+            </Button>
+            <Button auto css={{background: "#0072F5 !important"}} onClick={connectHuddleWallet}>
+              Yes
+            </Button>
+          </Modal.Footer>
+        </Modal>
 
         {/* <div className="flex justify-center flex-wrap">
           {reactions.map((reaction) => (
