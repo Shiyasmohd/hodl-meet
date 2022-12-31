@@ -19,7 +19,7 @@ const MeetPage = () =>  {
 
   const { address } = useAccount()
   const iframeConfig: IframeConfig = {
-    roomUrl: "https://iframe.huddle01.com/"+{contract},
+    roomUrl: "https://iframe.huddle01.com/"+contract,
     height: "600px",
     width: "80%",
   
