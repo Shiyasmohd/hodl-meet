@@ -48,7 +48,6 @@ const MeetPage = () =>  {
   const [visible, setVisible] = useState(false);
 
   const closeHandler = () => {
-    router.push('/');
     setVisible(false);
   };
 
@@ -58,7 +57,7 @@ const MeetPage = () =>  {
   }
 
   useEffect(()=>{
-    setVisible(true)
+    setTimeout(()=>setVisible(true),5000)
   },[])
 
   // const participants = huddleIframeApp.infoMethods.getParticipants();
@@ -84,34 +83,34 @@ const MeetPage = () =>  {
           </div>
         </div> */}
 
-        <HuddleIframe config={iframeConfig} />
-
-        {/* Modal */}
-        <Modal
-          closeButton
-          aria-labelledby="modal-title"
-          open={visible}
-          onClose={closeHandler}
-        >
-          <Modal.Header>
-              <Text b size={18}>
-              HODL MEET
+          {/* Modal */}
+          <Modal
+            closeButton
+            aria-labelledby="modal-title"
+            open={visible}
+            onClose={closeHandler}
+          >
+            <Modal.Header>
+                <Text b size={18}>
+                HODL MEET
+                </Text>
+            </Modal.Header>
+            <Modal.Body>
+              <Text>
+                Are you sure that you wanna join this room ? 
               </Text>
-          </Modal.Header>
-          <Modal.Body>
-            <Text>
-              Are you sure that you wanna join this room ? 
-            </Text>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button auto flat color="error" css={{background: "#FDD8E5 !important"}} onClick={closeHandler}>
-              Go Back
-            </Button>
-            <Button auto css={{background: "#0072F5 !important"}} onClick={connectHuddleWallet}>
-              Yes
-            </Button>
-          </Modal.Footer>
-        </Modal>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button auto flat color="error" css={{background: "#FDD8E5 !important"}} onClick={()=>router.push('/')}>
+                Go Back
+              </Button>
+              <Button auto css={{background: "#0072F5 !important"}} onClick={connectHuddleWallet}>
+                Yes
+              </Button>
+            </Modal.Footer>
+          </Modal>
+
+        <HuddleIframe config={iframeConfig} />
 
         {/* <div className="flex justify-center flex-wrap">
           {reactions.map((reaction) => (
