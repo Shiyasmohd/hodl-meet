@@ -48,6 +48,7 @@ const MeetPage = () =>  {
   const [visible, setVisible] = useState(false);
 
   const closeHandler = () => {
+    router.push('/');
     setVisible(false);
   };
 
