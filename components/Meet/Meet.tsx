@@ -62,7 +62,7 @@ const MeetPage = () =>  {
 
   // const participants = huddleIframeApp.infoMethods.getParticipants();
   return (
-    <div className="App max-w-[1400px] mx-auto my-0 p-6">
+    <div className="App max-w-[1400px] mx-auto my-0 p-6 flex justify-center">
       <div className="container flex flex-col items-center gap-2">
         {/* <div className="">
       
