@@ -13,6 +13,7 @@ import { publicProvider } from 'wagmi/providers/public';
 import MainNavbar from '../components/Navbar/Navbar';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import NextNProgress from 'nextjs-progressbar';
 
 const { chains, provider } = configureChains(
   [mainnet, polygon, optimism, arbitrum],
@@ -48,6 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <NextUIProvider>
+          <NextNProgress />
           <MainNavbar/>
             <Component {...pageProps} />
         </NextUIProvider>

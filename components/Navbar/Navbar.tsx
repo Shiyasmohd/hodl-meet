@@ -4,6 +4,7 @@ import { AcmeLogo } from "./AcmeLogo";
 import { useRouter } from "next/router";
 import { useAccount } from "wagmi";
 import { useAccountModal } from "@rainbow-me/rainbowkit";
+import UserImg from '../../public/user.png'
 
 export default function MainNavbar() {
 
@@ -65,7 +66,7 @@ export default function MainNavbar() {
                   as="button"
                   color="secondary"
                   size="md"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                  src="https://ipfs.filebase.io/ipfs/QmSNcmR3JRAqeAJxo87rwjXb7E2vtuh8RM6ejEAwzYwHGU"
                 />
               </Dropdown.Trigger>
             </Navbar.Item>
