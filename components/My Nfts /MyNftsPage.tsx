@@ -1,4 +1,4 @@
-import { Card, Row, Text } from "@nextui-org/react";
+import { Card, Loading, Row, Text } from "@nextui-org/react";
 import { Alchemy,Network } from "alchemy-sdk";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -58,10 +58,11 @@ const MyNftsPage = () =>{
             <Text h2 className="text-2xl">
                 My NFTs
             </Text>
+            {
+                nftsArr ?
             <div className="grid grid-cols-2 gap-2 mt-4
                             md:grid-cols-3 md:gap-4">
                 {
-                    nftsArr ?
                     nftsArr.map((item: NftDetails, index: number)=>(
                         <NftCard
                             name={item.name}
@@ -71,9 +72,16 @@ const MyNftsPage = () =>{
                             key={index}
                             />
                     ))
-                    : ""
+                     
+}
+            </div> : 
+                <Card css={{ mw: "400px",margin: '0 auto' }}>
+                <Card.Body className="w-full flex flex-row justify-center gap-3">
+                    <Loading className="w-fit"/>
+                    <Text className="w-fit tracking-wider">Fetching Nfts</Text>
+                </Card.Body>
+                </Card>
                 }
-            </div>
         </div>
     )
 }
