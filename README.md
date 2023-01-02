@@ -21,6 +21,6 @@ HODL MEET is a web-based platform that allows users to connect and communicate w
 
   • NextJS<br/>
   • Typescript<br/>
-  • TailwinCSS<br/>
+  • TailwindCSS<br/>
   • Huddle01 SDK<br/>
   • Vercel
