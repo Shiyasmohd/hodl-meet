@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Home from '../components/Home/Home';
 import MyNftsPage from '../components/My Nfts /MyNftsPage';
+import MyNFTDetails from '../components/My Nfts /NFTDetails';
 
 
 export default function Main() {
